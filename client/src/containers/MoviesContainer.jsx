@@ -14,7 +14,6 @@ export const Movies = React.createClass({
 });
 
 function mapStateToProps (state) {
-    console.log(state.getIn("movies"));
     return {
         movies: state.get("movies")
     };

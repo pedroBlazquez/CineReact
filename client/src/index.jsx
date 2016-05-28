@@ -8,7 +8,7 @@ import {createStore} from 'redux';
 import reducer from './reducers/Reducer.jsx';
 import {setMovies} from './actions/actions.jsx';
 
-let movies = {
+/*let movies = {
     movies:[
         {
             name:"name",
@@ -19,9 +19,12 @@ let movies = {
             description:"other descriptions"
         }
     ]
-};
+};*/
+
+let m = Map({movies:[{name:"name", description:"description"},{name:"other name", description:"other description"}]});
+
 const store = createStore(reducer);
-store.dispatch(setMovies(movies));
+store.dispatch(setMovies(m));
 
 ReactDOM.render(
     <Provider store={store}>
