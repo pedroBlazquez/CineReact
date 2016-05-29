@@ -26,7 +26,8 @@ export const Movies = React.createClass({
 
 function mapStateToProps (state) {
     return {
-        movies: state.get("movies")
+        movies: state.get('movies'),
+        cart: state.get('cart')
     };
 }
 
