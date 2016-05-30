@@ -5,10 +5,10 @@ export function setMovies(state) {
     }
 };
 
-export function setCart(state) {
+export function setCart(movie) {
     return {
         type: 'SET_CART',
-        state
+        movie
     }
 };
 
