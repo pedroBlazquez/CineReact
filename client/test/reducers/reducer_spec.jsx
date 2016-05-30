@@ -33,10 +33,10 @@ describe('reducer',() =>{
 
             expect(reducer(cartState, action)).to.equal(fromJS(
                 {
-                'cart':
-                    {
-                        'other movie':{name:'other movie', description:'other movie description'}
-                    }
+                    'cart':
+                        {
+                            'other movie':{name:'other movie', description:'other movie description'}
+                        }
                 }
             ));
 
