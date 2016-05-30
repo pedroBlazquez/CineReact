@@ -11,8 +11,8 @@ import MainContainer from './containers/MainPageContainer.jsx'
 let m = Map({
     movies:
     [
-        {name:"name", description:"description"},
-        {name:"other name", description:"other description"}
+        {name:'name', description:'description', price:10.50},
+        {name:'other name', description:'other description', price:15.00}
     ]
 });
 

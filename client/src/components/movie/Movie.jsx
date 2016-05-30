@@ -6,8 +6,9 @@ export default React.createClass({
     render: function() {
         return <div className="movie">
             <h2 className="title">{this.props.name}</h2>
-            <div className="description">{this.props.description}</div>
             <img src={this.props.imgUrl} className="image" alt="no image to display"></img>
+            <div className="description">{this.props.description}</div>
+            <div className="price">${this.props.price}</div>
             <Btn  text={this.props.btnText} clickAction={this.props.cartAction}></Btn>
         </div>;
     }
