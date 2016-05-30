@@ -3,9 +3,6 @@ import Btn from '../customButton/CustomButton.jsx'
 import {setCart} from '../../actions/actions.jsx';
 
 export default React.createClass({
-    isOnCart: function () {
-        
-    },
     render: function() {
         return <div className="movie">
             <h2 className="title">{this.props.name}</h2>

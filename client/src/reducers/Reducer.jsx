@@ -5,7 +5,7 @@ function setMovies(state, newState) {
 }
 
 function setCart(cartState, movie) {
-    console.log(cartState);
+
     return cartState.updateIn(['cart',movie.name], val => movie);
 }
 
@@ -19,6 +19,8 @@ export default function (state = Map(), action) {
         return setMovies(state, action.state);
         case 'SET_CART':
         return setCart(state, action.state);
+        case 'REMOVE_FROM_CART':
+        return removeFromCart(state, action.movie);
     }
     return state;
 }
