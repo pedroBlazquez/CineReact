@@ -5,7 +5,7 @@ import {MovieContainer} from '../containers/MoviesContainer.jsx';
 import Btn from '../components/customButton/CustomButton.jsx'
 
 const routes =<Router history={hashHistory}>
-    <Route path="/" component={MovieContainer}></Route>
+    <Route path="/movies" component={MovieContainer}></Route>
     </Router>;
 
 export default React.createClass({
