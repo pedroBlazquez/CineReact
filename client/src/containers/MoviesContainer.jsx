@@ -5,9 +5,6 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions.jsx';
 
 export const Movies = React.createClass({
-    componentWillMount: function () {
-        console.log(this.props.movies);
-    },
     addToCart: function (movie) {
         return  () => {
             this.props.setCart(movie);
@@ -29,7 +26,7 @@ export const Movies = React.createClass({
         return <div className="moviesContainer">
             {this.props.movies.map(movie =>
                 <Movie key={movie.name} {...movie} btnText={this.isMovieOnCart(movie) ? 'Remove' : 'Add'}
-                    addToCart={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
+                    cartAction={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
             )}
         </div>;
     }

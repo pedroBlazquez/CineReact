@@ -6,19 +6,22 @@ function setMovies(state, newState) {
 
 function setCart(cartState, movie) {
     let cart = cartState.get('cart');
-    if(!cart) {
+    if (!cart) {
         cart = List();
     }
+    
     return cartState.updateIn(['cart'], val => cart.push(fromJS(movie)));
 }
 
 function removeFromCart(cartState, movie) {
     let cart =  cartState.get('cart');
-    if(!cart) {
+
+    if (!cart) {
         cart = List();
     } else {
         cart = cart.filter(v => !v.equals(fromJS(movie)));
     }
+
     return cartState.updateIn(['cart'], val => cart);
 }
 

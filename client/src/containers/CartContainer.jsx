@@ -13,10 +13,16 @@ export const Cart = React.createClass({
 
         return cart;
     },
+    removeFromCart: function (movie) {
+        return () => {
+            this.props.removeItemFromCart(movie);
+        }
+    },
     render: function () {
-        return <div>
+        return <div className='cartContainer'>
+            <h2>Items: {this.getMovies().length}</h2>
             {this.getMovies().map(movie =>
-                <Movie key={movie.name} {...movie}></Movie>
+                <Movie key={movie.name} {...movie} btnText='Remove' cartAction={this.removeFromCart(movie)}></Movie>
             )}
         </div>
     }
