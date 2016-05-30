@@ -1,10 +1,13 @@
 import React from 'react';
 import Movie from '../components/movie/Movie.jsx';
-import Immutable, {List} from 'immutable'
+import {List,fromJS} from 'immutable'
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions.jsx';
 
 export const Movies = React.createClass({
+    componentWillMount: function () {
+        console.log(this.props.movies);
+    },
     addToCart: function (movie) {
         return  () => {
             this.props.setCart(movie);
@@ -18,17 +21,15 @@ export const Movies = React.createClass({
     isMovieOnCart: function (movie) {
         let isOnCart = false;
         if(this.props.cart) {
-            if (this.props.cart.has(movie.name)) {
-                isOnCart = true;
-            }
+            isOnCart = this.props.cart.includes(fromJS(movie));
         }
         return isOnCart;
     },
     render: function() {
         return <div className="moviesContainer">
             {this.props.movies.map(movie =>
-                <Movie key={movie.name} {...movie} addToCart={this.isMovieOnCart(movie) ?
-                        this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
+                <Movie key={movie.name} {...movie} btnText={this.isMovieOnCart(movie) ? 'Remove' : 'Add'}
+                    addToCart={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
             )}
         </div>;
     }

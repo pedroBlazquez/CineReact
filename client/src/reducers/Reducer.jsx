@@ -5,14 +5,21 @@ function setMovies(state, newState) {
 }
 
 function setCart(cartState, movie) {
-    return cartState.updateIn(['cart', movie.name], val => fromJS(movie));
+    let cart = cartState.get('cart');
+    if(!cart) {
+        cart = List();
+    }
+    return cartState.updateIn(['cart'], val => cart.push(fromJS(movie)));
 }
 
 function removeFromCart(cartState, movie) {
-    /*console.log('----SE REMOVIO------');
-    console.log(cartState);
-    console.log('-------------------');*/
-    return cartState.deleteIn(['cart', movie.name]);
+    let cart =  cartState.get('cart');
+    if(!cart) {
+        cart = List();
+    } else {
+        cart = cart.filter(v => !v.equals(fromJS(movie)));
+    }
+    return cartState.updateIn(['cart'], val => cart);
 }
 
 export default function (state = Map(), action) {

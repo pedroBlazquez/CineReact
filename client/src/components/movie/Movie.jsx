@@ -8,7 +8,7 @@ export default React.createClass({
             <h2 className="title">{this.props.name}</h2>
             <div className="description">{this.props.description}</div>
             <img src={this.props.imgUrl} className="image" alt="no image to display"></img>
-            <Btn  text="Agregar" clickAction={this.props.addToCart}></Btn>
+            <Btn  text={this.props.btnText} clickAction={this.props.addToCart}></Btn>
         </div>;
     }
 });

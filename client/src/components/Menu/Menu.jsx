@@ -2,7 +2,6 @@ import React from 'react';
 
 export default React.createClass({
     getItems: function () {
-        console.log(this.props.items);
         return this.props.items || []
     },
     render: function () {
