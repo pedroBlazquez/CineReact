@@ -6,10 +6,14 @@ import * as actions from '../actions/actions.jsx';
 
 export const Cart = React.createClass({
     getMovies: function () {
-        return this.props.cart.toJS() || [];
+        let cart = [];
+        if (this.props.cart) {
+            cart = this.props.cart.toJS();
+        }
+
+        return cart;
     },
     render: function () {
-        let id = 0;
         return <div>
             {this.getMovies().map(movie =>
                 <Movie key={movie.name} {...movie}></Movie>
