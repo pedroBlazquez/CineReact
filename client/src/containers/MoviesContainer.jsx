@@ -22,7 +22,6 @@ export const Movies = React.createClass({
                 isOnCart = true;
             }
         }
-
         return isOnCart;
     },
     render: function() {
@@ -32,7 +31,6 @@ export const Movies = React.createClass({
                         this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
             )}
         </div>;
-
     }
 });
 
