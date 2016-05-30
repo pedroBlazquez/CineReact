@@ -9,7 +9,7 @@ function setCart(cartState, movie) {
     if (!cart) {
         cart = List();
     }
-    
+
     return cartState.updateIn(['cart'], val => cart.push(fromJS(movie)));
 }
 

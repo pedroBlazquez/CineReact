@@ -5,7 +5,7 @@ export default React.createClass({
         return this.props.items || []
     },
     render: function () {
-        return<div className="navBar">
+        return<div className="menuContainer">
              <ul className="menu">
                 {this.getItems().map(item =>
                     <li key={item.text} className="menu-item">
