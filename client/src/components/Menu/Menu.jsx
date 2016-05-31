@@ -1,4 +1,5 @@
 import React from 'react';
+import {Nav, Navbar, NavItem} from 'react-bootstrap';
 
 
 export default React.createClass({
@@ -6,14 +7,14 @@ export default React.createClass({
         return this.props.items || []
     },
     render: function () {
-        return<div className="menuContainer">
-             <ul className="menu">
+        return <Navbar inverse>
+            <Nav bsStyle="tabs">
                 {this.getItems().map(item =>
-                    <li key={item.text} className="menu-item">
-                        <a href={item.url}>{item.text}</a>
-                    </li>
+                    <NavItem key={item.text} href={item.url}>
+                        {item.text}
+                    </NavItem>
                 )}
-            </ul>
-        </div>;
+            </Nav>
+        </Navbar>;
     }
 });

@@ -3,6 +3,7 @@ import Movie from '../components/movie/Movie.jsx';
 import {List,fromJS} from 'immutable'
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions.jsx';
+import {Grid,Col,Row} from 'react-bootstrap'
 
 export const Movies = React.createClass({
     addToCart: function (movie) {
@@ -24,10 +25,16 @@ export const Movies = React.createClass({
     },
     render: function() {
         return <div className="moviesContainer">
-            {this.props.movies.map(movie =>
-                <Movie key={movie.name} {...movie} btnText={this.isMovieOnCart(movie) ? 'Remove' : 'Add'}
-                    cartAction={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
-            )}
+            <Grid>
+                <Row>
+                {this.props.movies.map(movie =>
+                    <Col xs={6} md={2}>
+                        <Movie key={movie.name} {...movie} btnText={this.isMovieOnCart(movie) ? 'Remove' : 'Add'}
+                            cartAction={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
+                    </Col>
+                )}
+                </Row>
+            </Grid>
         </div>;
     }
 });

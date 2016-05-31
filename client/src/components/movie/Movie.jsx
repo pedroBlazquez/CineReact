@@ -1,6 +1,6 @@
 import React from 'react';
 import {setCart} from '../../actions/actions.jsx';
-import {Button} from 'react-bootstrap';
+import {Button, Image} from 'react-bootstrap';
 
 
 export default React.createClass({
@@ -15,7 +15,7 @@ export default React.createClass({
     render: function() {
         return <div className="movie">
                 <h2 className="title">{this.props.name}</h2>
-                <img src={this.props.imgUrl} className="image" alt="no image to display"></img>
+                <Image src={this.props.imgUrl} className="image" alt="no image to display" rounded responsive></Image>
                 <div className="description">{this.props.description}</div>
                 <div className="price">{'$'+this.props.price}</div>
                 <Button bsSize="small" onClick={this.props.cartAction}>{this.props.btnText}</Button>
