@@ -14,6 +14,7 @@ module.exports = {
             loader: 'react-hot!babel'
         },
         {   test: /\.css$/,
+            exclude: /node_modules/,
             loader: ExtractTextPlugin.extract("css-loader")
         }]
     },

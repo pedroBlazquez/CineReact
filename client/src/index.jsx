@@ -12,7 +12,11 @@ let m = Map({
     movies:
     [
         {name:'name', description:'description', price:10.50},
-        {name:'other name', description:'other description', price:15.00}
+        {name:'other name', description:'other description', price:15.00},
+        {name:'Terminator', description:'other description', price:15.00},
+        {name:'SuperCool', description:'other description', price:15.00},
+        {name:'Some movie', description:'other description', price:15.00},
+        {name:'Avatar', description:'other description', price:15.00}
     ]
 });
 

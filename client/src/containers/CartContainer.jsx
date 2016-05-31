@@ -28,7 +28,7 @@ export const Cart = React.createClass({
     render: function () {
         return <div className='cartContainer'>
             <h2>Items: {this.getMovies().length}</h2>
-            <h2>Total bill: ${this.getTotalBill()}</h2>
+            <h2>Total bill: {'$'+this.getTotalBill()}</h2>
             {this.getMovies().map(movie =>
                 <Movie key={movie.name} {...movie} btnText='Remove' cartAction={this.removeFromCart(movie)}></Movie>
             )}

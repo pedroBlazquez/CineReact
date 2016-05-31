@@ -1,4 +1,5 @@
 import React from 'react';
+require('./menu.css');
 
 export default React.createClass({
     getItems: function () {
