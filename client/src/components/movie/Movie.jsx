@@ -1,7 +1,7 @@
 import React from 'react';
-import Btn from '../customButton/CustomButton.jsx';
 import {setCart} from '../../actions/actions.jsx';
-require('./Movie.css');
+import {Button} from 'react-bootstrap';
+
 
 export default React.createClass({
     propTypes: {
@@ -18,7 +18,7 @@ export default React.createClass({
                 <img src={this.props.imgUrl} className="image" alt="no image to display"></img>
                 <div className="description">{this.props.description}</div>
                 <div className="price">{'$'+this.props.price}</div>
-                <Btn  text={this.props.btnText} clickAction={this.props.cartAction}></Btn>
+                <Button bsSize="small" onClick={this.props.cartAction}>{this.props.btnText}</Button>
         </div>;
     }
 });
