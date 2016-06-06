@@ -10,7 +10,7 @@ function setCart(cartState, movie) {
         cart = List();
     }
 
-    return cartState.updateIn(['cart'], val => cart.push(fromJS(movie)));
+    return cartState.updateIn(['cart'], val => cart.push(movie));
 }
 
 function removeFromCart(cartState, movie) {
@@ -19,7 +19,7 @@ function removeFromCart(cartState, movie) {
     if (!cart) {
         cart = List();
     } else {
-        cart = cart.filter(v => !v.equals(fromJS(movie)));
+        cart = cart.filter(v => !v.equals(movie));
     }
 
     return cartState.updateIn(['cart'], val => cart);

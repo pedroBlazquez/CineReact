@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from '../components/movie/Movie.jsx';
-import {List,fromJS} from 'immutable'
+import {Map,List} from 'immutable'
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions.jsx';
 import {Grid,Col,Row} from 'react-bootstrap'
@@ -19,7 +19,7 @@ export const Movies = React.createClass({
     isMovieOnCart: function (movie) {
         let isOnCart = false;
         if(this.props.cart) {
-            isOnCart = this.props.cart.includes(fromJS(movie));
+            isOnCart = this.props.cart.includes(movie);
         }
         return isOnCart;
     },
@@ -29,8 +29,14 @@ export const Movies = React.createClass({
                 <Row>
                 {this.props.movies.map(movie =>
                     <Col xs={6} md={2}>
-                        <Movie key={movie.name} {...movie} btnText={this.isMovieOnCart(movie) ? 'Remove' : 'Add'}
-                            cartAction={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}></Movie>
+                        <Movie key={movie.get('name')}
+                            name={movie.get('name')}
+                            imgUrl={movie.get('imgUrl')}
+                            description={movie.get('description')}
+                            price={movie.get('price')}
+                            btnText={this.isMovieOnCart(movie) ? 'Remove' : 'Add'}
+                            cartAction={this.isMovieOnCart(movie) ? this.removeFromCart(movie) : this.addToCart(movie)}>
+                        </Movie>
                     </Col>
                 )}
                 </Row>
