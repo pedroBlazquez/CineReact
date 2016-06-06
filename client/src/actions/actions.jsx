@@ -18,3 +18,14 @@ export function removeItemFromCart(movie) {
         movie
     }
 };
+
+/*
+This action will be executed only in server, to update CART
+*/
+export function confirmCart(cartState) {
+    return {
+        meta:{remote:true},
+        type: 'CONFIRM_CART',
+        cartState
+    }
+}

@@ -1,5 +1,15 @@
 import {List, Map} from 'immutable';
 
-export function addToCart (state, movie) {
-    return state.push(movie);
+export function setMovies(movies) {
+    return {
+        type:'SET_MOVIES',
+        movies
+    }
+}
+
+export function setCart(cart) {
+    return {
+        type:'SET_CART',
+        cart
+    }
 }
