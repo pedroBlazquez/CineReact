@@ -5,6 +5,13 @@ export function setMovies(state) {
     }
 };
 
+export function filterMovies(movie) {
+    return {
+        type:'FILTER_MOVIES',
+        movie
+    }
+};
+
 export function setCart(movie) {
     return {
         type: 'SET_CART',

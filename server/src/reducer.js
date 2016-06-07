@@ -5,7 +5,6 @@ function setMovies (state, movies) {
 }
 
 function setCart(cartState, newCartState) {
-    console.log(newCartState);
     return cartState.updateIn(['cart'], val => newCartState);
 }
 

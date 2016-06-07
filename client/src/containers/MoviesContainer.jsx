@@ -1,9 +1,10 @@
 import React from 'react';
-import Movie from '../components/movie/Movie.jsx';
 import {Map,List} from 'immutable'
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions.jsx';
 import {Grid,Col,Row} from 'react-bootstrap'
+import Movie from '../components/movie/Movie.jsx';
+import Search from '../components/Search/Search.jsx'
 
 export const Movies = React.createClass({
     addToCart: function (movie) {
@@ -23,11 +24,28 @@ export const Movies = React.createClass({
         }
         return isOnCart;
     },
+    getMovies: function () {
+        return this.props.filteredMovies || this.props.movies
+    },
+    searchFilter: function () {
+        const movies = this.props.movies;
+
+            return (e) => {
+                let filteredMovies = movies.filter(movie =>
+                    (
+                        movie.get('name').toUpperCase().includes(e.target.value.toUpperCase().trim()) ||
+                        movie.get('description').toUpperCase().includes(e.target.value.toUpperCase().trim())
+                    )
+                );
+                this.props.filterMovies(filteredMovies);
+            }
+    },
     render: function() {
         return <div className="moviesContainer">
             <Grid>
+                <Search handleSearch={this.searchFilter()}></Search>
                 <Row>
-                {this.props.movies.map(movie =>
+                {this.getMovies().map(movie =>
                     <Col xs={6} md={2}>
                         <Movie key={movie.get('name')}
                             name={movie.get('name')}
@@ -48,7 +66,8 @@ export const Movies = React.createClass({
 function mapStateToProps (state) {
     return {
         movies: state.get('movies'),
-        cart: state.get('cart')
+        cart: state.get('cart'),
+        filteredMovies: state.get('filteredMovies')
     };
 }
 

@@ -13,6 +13,10 @@ function setCart(cartState, movie) {
     return cartState.updateIn(['cart'], val => cart.push(movie));
 }
 
+function setFilteredMovies(state, movies) {
+    return state.setIn(['filteredMovies'], movies);
+}
+
 function removeFromCart(cartState, movie) {
     let cart =  cartState.get('cart');
 
@@ -33,6 +37,8 @@ export default function (state = Map(), action) {
         return setCart(state, action.movie);
         case 'REMOVE_FROM_CART':
         return removeFromCart(state, action.movie);
+        case 'FILTER_MOVIES':
+        return setFilteredMovies(state,action.movie);
     }
     return state;
 }

@@ -1,6 +1,6 @@
 {
     "movies":[
-        {"name":"name", "description":"description", "price":10.50},
+        {"name":"name", "description":"something", "price":10.50},
         {"name":"other name", "description":"other description", "price":15.00},
         {"name":"Terminator", "description":"other description", "price":15.00},
         {"name":"SuperCool", "description":"other description", "price":15.00},
